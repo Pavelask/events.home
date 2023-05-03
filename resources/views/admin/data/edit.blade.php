@@ -1,5 +1,8 @@
 <x-app-layout>
     <x-slot name="header">
+        <h2 class="font-semibold text-xl text-lime-500 leading-tight">
+            Редактирование данных о мероприятии
+        </h2>
         <h2 class="font-semibold text-xl text-gray-500 leading-tight">
             {{ $Event->name }}
         </h2>
@@ -23,8 +26,8 @@
                         </div>
                     </div>
                     <div class="mt-5 md:mt-0 md:col-span-3">
-                        <x-splade-form method="POST" :action="route('data.store', ['event' => $Event->id])"
-                                       :default="[ 'events_id' =>  $Event->id, ]"
+                        <x-splade-form method="PUT" :action="route('data.update', ['event' => $Event->id, 'data' => $Data->id])"
+                                       :default="$Data"
                                        preserve-scroll>
                             <div class="shadow overflow-hidden sm:rounded-md">
                                 <div class="px-4 py-5 bg-white sm:p-6">
@@ -32,6 +35,7 @@
                                         <div class="col-start-1 col-span-6 sm:col-span-6">
                                             <x-splade-input type="hidden" v-model="form.events_id"/>
                                             <x-splade-file  id="image" name="image" filepond preview
+                                                            min-size="100KB" max-size="5MB"
                                                             :label="__('Фото к приветствию')"/>
                                         </div>
                                         <div class="col-start-1 col-span-6 sm:col-span-6">
@@ -41,6 +45,7 @@
                                         </div>
                                         <div class="col-start-1 col-span-6 sm:col-span-6">
                                             <x-splade-file  id="banner" name="banner" filepond preview
+                                                            min-size="100KB" max-size="5MB"
                                                             :label="__('Баннер на главную')"/>
                                         </div>
 
@@ -79,6 +84,7 @@
                                             Вернуться в раздел <span aria-hidden="true"> &rarr;</span></a>
                                     </div>
                                 </div>
+
                             </div>
                         </x-splade-form>
                     </div>

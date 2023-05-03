@@ -80,7 +80,7 @@
                                 <div
                                     class="relative -m-2 p-2 flex items-center space-x-4 rounded-xl hover:bg-gray-50 focus-within:ring-2 focus-within:ring-indigo-500">
                                     <div class="flex-shrink-0 flex items-center justify-center h-14 w-14 rounded-lg bg-gradient-to-r from-purple-500 to-pink-500">
-                                        {{--                                        <x-heroicon-m-cursor-arrow-rays class="h-12 w-12 text-white"/>--}}
+                                        <x-far-comments class="w-10 h-10 text-white" />
                                     </div>
                                     <div>
                                         <h3 class="text-s font-medium text-gray-900">

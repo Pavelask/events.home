@@ -14,6 +14,7 @@ use App\Http\Controllers\Admin\MemberStatusController;
 use App\Http\Controllers\Admin\ModeratorsController;
 use App\Http\Controllers\Admin\TerritorialOrganizationsController;
 use App\Http\Controllers\ProfileController;
+use App\Http\Controllers\SiteController;
 use App\Http\Controllers\User\IndexController;
 use App\Http\Controllers\User\MemberController;
 use Illuminate\Support\Facades\Route;
@@ -45,9 +46,12 @@ Route::middleware('splade')->group(function () {
     // Registers routes to support async File Uploads with Filepond...
     Route::spladeUploads();
 
-    Route::get('/', function () {
-        return view('welcome');
-    });
+//    Route::get('/', function () {
+//        return view('welcome');
+//    });
+
+    Route::get('/', [SiteController::class, 'index'])
+        ->name('index');
 
     Route::middleware(['auth', 'verified'])->group(function () {
         Route::group(['middleware' => ['role:Admin']], function () {
