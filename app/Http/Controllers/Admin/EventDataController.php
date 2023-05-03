@@ -39,10 +39,12 @@ class EventDataController extends Controller
      */
     public function create(string $event)
     {
-        $Events = EventsModel::find($event);
+        $Event = EventsModel::query()->select('id', 'name', 'date_start', 'date_end')
+            ->where('id', $event)
+            ->first();
 
         return view('admin.data.add', [
-            'Event' => $Events,
+            'Event' => $Event,
         ]);
     }
 
@@ -51,108 +53,47 @@ class EventDataController extends Controller
      */
     public function store(EventDataRequest $request, EventsModel $event)
     {
-        HandleSpladeFileUploads::forRequest($request);
-        $path = 'data/';
-//        dd($event);
-
-        if (!$request->image_existing && !$request->hasFile('image')) {
-
-            $existsImage = Storage::disk('public')->exists($path . $event->image);
-
-            if ($existsImage) {
-                $ExistingFileImage = ExistingFile::fromDisk('public')->get($path . $event->image);
-                $image_path = public_path() . '/storage/' . $path .  $ExistingFileImage->filename;
-
-                unlink($image_path);
-                $validated['image'] = '';
-            }
-        }
-
-
-        if (!$request->banner_existing && !$request->hasFile('banner')) {
-
-            $existsBanner = Storage::disk('public')->exists($path . $event->banner);
-
-            if ($existsBanner) {
-                $ExistingFileBanner = ExistingFile::fromDisk('public')->get($path . $event->banner);
-                $image_path = public_path() . '/storage/' . $path . $ExistingFileBanner->filename;
-
-                unlink($image_path);
-                $validated['banner'] = '';
-            }
-        }
-
         $validated = $request->validated();
-        $validated['events_id'] = $request->events_id;
-
-        if ($request->image_existing) {
-            $validated['image'] = $request->image_existing->filename;
-        }
+        $validated['image'] = '';
+        $validated['banner'] = '';
 
         if ($request->hasFile('image')) {
             $image = $request->file('image');
             $name = $image->hashName();
 
-            $existsImage = Storage::disk('public')->exists($path . $event->image);
-            if ($existsImage) {
-                $ExistingFileImage = ExistingFile::fromDisk('public')->get($path . $event->image);
-                $image_path = public_path() . '/storage/' . $path .  $ExistingFileImage->filename;
-                unlink($image_path);
-            }
-
             Storage::put("public/data/", $image);
-            $validated['image'] = "images/data/" . $name;
-
-        }
-
-        if ($request->banner_existing) {
-            $validated['banner'] = $request->banner_existing->filename;
+            $validated['image'] = $name;
         }
 
         if ($request->hasFile('banner')) {
-            $banner = $request->file('banner');
-            $name = $banner->hashName();
+            $image = $request->file('banner');
+            $name = $image->hashName();
 
-            $existsImage = Storage::disk('public')->exists($path . $event->banner);
-            if ($existsImage) {
-                $ExistingFileImage = ExistingFile::fromDisk('public')->get($path . $event->banner);
-                $image_path = public_path() . '/storage/' . $path . $ExistingFileImage->filename;
-                unlink($image_path);
-            }
-
-            Storage::put("public/data/", $banner);
-            $validated['banner'] = "data/" . $name;
-
+            Storage::put("public/data/", $image);
+            $validated['banner'] = $name;
         }
 
-//        if ($request->image_existing) {
-//            $validated['image'] = $request->image_existing->filename;
-//        }
-//
-//        if ($request->hasFile('image')) {
-//            $image = $request->file('image');
-//            $name = $image->hashName();
-//
-//            $validated['image'] = "images/" . $name;
-//            Storage::put("public/", $validated['image']);
-//        }
+        $event->eventData()->create($validated);
 
-        dd($validated);
-
-        $event->update($validated);
-
-        Toast::title('Запись обновлена!')
+        Toast::title('Запись добавлена!')
             ->autoDismiss(7);
 
-//        return redirect()->route('event_data.show', $request->events_id);
+        return redirect()->route('data.index', ['event' => $event->id]);
+
     }
 
     /**
      * Display the specified resource.
      */
-    public function show(string $id)
+    public function show(EventsModel $event, string $id)
     {
-        //
+        $Event = EventsModel::query()->select('id', 'name', 'date_start', 'date_end')
+            ->where('id', $event)
+            ->first();
+
+        return view('admin.data.add', [
+            'Event' => $Event,
+        ]);
     }
 
     /**
@@ -160,7 +101,7 @@ class EventDataController extends Controller
      */
     public function edit(string $id)
     {
-        //
+
     }
 
     /**

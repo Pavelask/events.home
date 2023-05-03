@@ -18,7 +18,7 @@ class EventController extends Controller
      */
     public function index()
     {
-        $Events = EventsModel::orderBy('created_at', 'desc')->paginate(5);
+//        $Events = EventsModel::orderBy('created_at', 'desc')->paginate(5);
         return view('admin.events.index', [
             'Events' => SpladeTable::for(EventsModel::class)
                 //->column('id', label: 'ID', sortable: true)
@@ -68,10 +68,16 @@ class EventController extends Controller
     /**
      * Display the specified resource.
      */
-    public function show(EventsModel $event)
+    public function show(string $event)
     {
+        $Event = EventsModel::query()->select('id', 'name', 'date_start', 'date_end')
+            ->where('id', $event)
+            ->first();
+
+//        dd($Event);
+
         return view('admin.events.show', [
-            'Event' => $event,
+            'Event' => $Event,
         ]);
     }
 

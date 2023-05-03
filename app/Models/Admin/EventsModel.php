@@ -46,7 +46,7 @@ class EventsModel extends Model
     ];
 
 
-    public function data(): HasOne
+    public function eventData(): HasOne
     {
         return $this->hasOne(EventDataModel::class, 'events_id', 'id');
     }

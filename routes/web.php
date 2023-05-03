@@ -28,6 +28,9 @@ use Illuminate\Support\Facades\Route;
 | contains the "web" middleware group. Now create something great!
 |
 */
+Route::get('/test', function() {
+    return 'test';
+});
 
 Route::middleware('splade')->group(function () {
     // Registers routes to support the interactive components...
