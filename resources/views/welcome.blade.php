@@ -256,6 +256,59 @@
     </div>
 
 
+    <div class="bg-white">
+        <div class="mx-auto py-12 px-4 max-w-7xl sm:px-6 lg:px-8 lg:py-24">
+            <div class="space-y-12 lg:grid lg:grid-cols-3 lg:gap-8 lg:space-y-0">
+                <div class="space-y-5 sm:space-y-4">
+                    <h2 class="text-2xl font-bold tracking-tight sm:text-2xl text-gray-900">
+                        Приглашенные гости
+                    </h2>
+                    <p class="text-xl text-gray-500"></p>
+                </div>
+                <div class="lg:col-span-2">
+                    <ul role="list" class="space-y-12 sm:grid sm:grid-cols-2 sm:gap-x-6 sm:gap-y-12 sm:space-y-0 lg:gap-x-8">
+                        @foreach($Guests as $Guest)
+                        <li>
+                            <div class="space-y-4">
+                                <div class="aspect-w-3 aspect-h-2">
+                                    <img class="object-cover shadow-lg rounded-lg"
+                                         src="{{url('storage/guests/' . $Guest->image)}}"
+                                          alt="">
+                                </div>
+                                <div class="text-lg leading-6 font-medium space-y-1">
+                                    <h3>{{$Guest->name}}</h3>
+                                    <p class="text-indigo-600">{{$Guest->description}}</p>
+                                </div>
+                            </div>
+                        </li>
+                        @endforeach
+                        <!-- More people... -->
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="relative">
+        <div class="absolute inset-0 flex items-center" aria-hidden="true">
+            <div class="w-full border-t border-gray-200"></div>
+        </div>
+        <div class="relative flex justify-center">
+    <span class="bg-white px-2 text-gray-300">
+      <svg class="h-5 w-5 text-gray-300" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 20 20">
+        <path fill="#6B7280" fill-rule="evenodd"
+              d="M10 3a1 1 0 011 1v5h5a1 1 0 110 2h-5v5a1 1 0 11-2 0v-5H4a1 1 0 110-2h5V4a1 1 0 011-1z"
+              clip-rule="evenodd"/>
+      </svg>
+    </span>
+        </div>
+    </div>
+    <div class="py-4">
+
+    </div>
+
+
+
     <div class="py-4">
         <div class="max-w-6xl mx-auto sm:px-2 lg:px-4">
             <div class="mb-4">

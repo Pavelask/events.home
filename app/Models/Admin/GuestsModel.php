@@ -10,7 +10,7 @@ class GuestsModel extends Model
 {
     use HasFactory;
 
-    protected $table = 'moderators';
+    protected $table = 'guests';
 
     protected $fillable = [
         'events_id',

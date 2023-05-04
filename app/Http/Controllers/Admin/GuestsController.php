@@ -56,10 +56,10 @@ class GuestsController extends Controller
     /**
      * Store a newly created resource in storage.
      */
-    public function store(Request $request, EventsModel $event)
+    public function store(GuestsRequest $request, EventsModel $event)
     {
 
-        dd($request);
+//      dd($request);
 
         $defaultValueSort = 500;
 
@@ -75,7 +75,8 @@ class GuestsController extends Controller
             $validated['image'] = $name;
         }
 
-        // dd($validated, $request);
+         // dd($event->guests());
+
         $event->guests()->create($validated);
 
         Toast::title('Запись добавлена!')

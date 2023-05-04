@@ -43,7 +43,7 @@
                     </div>
                 </x-splade-form>
                 <div class="mt-4 flex">
-                    <a href="{{ route('moderator.index', ['event' => $Event] ) }}"
+                    <a href="{{ route('guest.index', ['event' => $Event] ) }}"
                        class="text-base font-medium text-indigo-600 hover:text-indigo-500">
                         Вернуться в раздел <span aria-hidden="true"> &rarr;</span></a>
                 </div>
