@@ -44,7 +44,7 @@
                                                                autosize/>
                                         </div>
                                         <div class="col-start-1 col-span-6 sm:col-span-6">
-                                            <x-splade-file  id="banner" name="banner" filepond preview
+                                            <x-splade-file  name="banner" filepond preview
                                                             min-size="100KB" max-size="5MB"
                                                             :label="__('Баннер на главную')"/>
                                         </div>
@@ -70,9 +70,10 @@
                                                             autocomplete="shema"/>
                                         </div>
                                         <div class="col-start-1 col-span-6 sm:col-span-6">
-                                            <x-splade-input id="map" name="map" type="text"
+                                            <x-splade-textarea name="map"
+{{--                                            <x-splade-input id="map" name="map" type="text"--}}
                                                             :label="__('Карта проезда')"
-                                                            autocomplete="map"/>
+                                                               autosize/>
                                         </div>
                                     </div>
                                     <div class="mt-4 px-4 py-3 bg-gray-50 sm:text-right sm:px-6 rounded-lg">

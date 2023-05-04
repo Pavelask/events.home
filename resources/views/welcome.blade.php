@@ -62,25 +62,32 @@
     <div class="relative overflow-hidden">
         <div class="max-w-[85rem] mx-auto px-4 sm:px-6 lg:px-8 py-10">
             <div class="max-w-2xl text-center mx-auto">
-                <h1 class="block text-3xl font-bold text-gray-600 sm:text-4xl md:text-3xl dark:text-white">
+                <h1 class="block text-2xl font-bold text-gray-600 sm:text-2xl md:text-2xl dark:text-white">
                     {{ Carbon\Carbon::parse($Event->date_start)->translatedFormat('d.m.Y') }}  - {{ Carbon\Carbon::parse($Event->date_end)->format('d.m.Y') }}
                 </h1>
-                <h1 class="block uppercase text-3xl font-bold text-gray-800 sm:text-4xl md:text-5xl dark:text-white">
+                <h1 class="block text-3xl font-bold text-gray-700 sm:text-4xl md:text-5xl dark:text-white">
                    {{ $Data->locate }}
                 </h1>
-                <p class="mt-3 text-lg text-gray-800 dark:text-gray-400">{{$Data->adress}}</p>
+                <p class="mt-3 text-lg font-bold text-gray-600 dark:text-gray-400">{{$Data->adress}}</p>
             </div>
-{{--            <img src="{{url('public/data/' . $Data->banner)}}">--}}
             <div class="mt-10 relative max-w-5xl mx-auto">
                 <div class="w-full object-cover h-96 sm:h-[480px] bg-no-repeat bg-center bg-cover rounded-xl" style="background-image: url({{url('storage/data/' . $Data->banner)}});"></div>
+                <svg class="absolute top-1/2 right-full transform -translate-y-1/2 -translate-x-0" width="404" height="384" fill="none" viewBox="0 0 404 384">
+                    <defs>
+                        <pattern id="f210dbf6-a58d-4871-961e-36d5016a0f49" x="0" y="0" width="20" height="20" patternUnits="userSpaceOnUse">
+                            <rect x="0" y="0" width="4" height="4" class="text-gray-200" fill="currentColor" />
+                        </pattern>
+                    </defs>
+                    <rect width="404" height="384" fill="url(#f210dbf6-a58d-4871-961e-36d5016a0f49)" />
+                </svg>
 
-                <div class="absolute bottom-12 -left-20 -z-[1] w-48 h-48 bg-gradient-to-b from-orange-500 to-white p-px rounded-lg dark:to-slate-900">
-                    <div class="bg-white w-48 h-48 rounded-lg dark:bg-slate-900"></div>
-                </div>
+{{--                <div class="absolute bottom-12 -left-20 -z-[1] w-48 h-48 bg-gradient-to-b from-orange-500 to-white p-px rounded-lg dark:to-slate-900">--}}
+{{--                    <div class="bg-white w-48 h-48 rounded-lg dark:bg-slate-900"></div>--}}
+{{--                </div>--}}
 
-                <div class="absolute -top-12 -right-20 -z-[1] w-48 h-48 bg-gradient-to-t from-blue-600 to-cyan-400 p-px rounded-full">
-                    <div class="bg-white w-48 h-48 rounded-full dark:bg-slate-900"></div>
-                </div>
+{{--                <div class="absolute -top-12 -right-20 -z-[1] w-48 h-48 bg-gradient-to-t from-blue-600 to-cyan-400 p-px rounded-full">--}}
+{{--                    <div class="bg-white w-48 h-48 rounded-full dark:bg-slate-900"></div>--}}
+{{--                </div>--}}
             </div>
         </div>
     </div>
@@ -128,16 +135,21 @@
                 </h1>
             </div>
             <div class="mt-6 prose prose-indigo prose-lg text-gray-500 mx-auto">
+                <figure>
+                    <img class="w-full rounded-lg" src="{{url('storage/data/' . $Data->image)}}" alt="" width="1310" height="873">
+                </figure>
                 <p class="text-justify">
                     {!!$Data->info!!}
                 </p>
-                <figure>
-                    <img class="w-full rounded-lg" src="{{url('storage/data/' . $Data->image)}}" alt="" width="1310" height="873">
-                    <figcaption>Председатель ВЭП Ю.Б. Офицеров</figcaption>
-                </figure>
+                <figcaption class="text-right">Председатель ВЭП Ю.Б. Офицеров</figcaption>
             </div>
         </div>
     </div>
+
+    <div class="w-full h-8 ">
+        <hr>
+    </div>
+
 
 
     <div class="py-4">

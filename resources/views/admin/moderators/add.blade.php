@@ -9,7 +9,7 @@
         <div class="max-w-4xl mx-auto sm:px-6 lg:px-8 space-y-6">
             <div class="mt-10 sm:mt-0">
 
-                <x-splade-form method="post" :action="route('moderator.store', ['event' => $Event])" preserve-scroll>
+                <x-splade-form method="POST" :action="route('moderator.store', ['event' => $Event])" preserve-scroll enctype="multipart/form-data">
                     <div class="bg-white px-6 pt-2 pb-2 sm:p-2 sm:pb-2 rounded-lg py-6">
                         <div class="md:grid md:grid-cols-6 md:gap-6">
                             <div class="col-span-6 sm:col-span-6">
@@ -23,7 +23,7 @@
                                                :label="__('Фотокарточка')"/>
                             </div>
                             <div class="col-span-6 sm:col-span-6">
-                                <x-splade-textarea name="description" :label="__('Должность, место работы и т.д.')"
+                                <x-splade-textarea :label="__('Должность, место работы и т.д.')"
                                                    autosize/>
                             </div>
                             <div class="col-span-3 sm:col-span-3">

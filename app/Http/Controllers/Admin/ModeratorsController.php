@@ -58,6 +58,8 @@ class ModeratorsController extends Controller
     {
         $defaultValueSort = 500;
 
+        dd($request);
+
         $validated = $request->validated();
         $validated['sort'] = $validated['sort'] ?? $defaultValueSort;
         $validated['image'] = '';
