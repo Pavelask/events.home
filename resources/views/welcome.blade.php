@@ -8,19 +8,23 @@
                         <x-application-logo class="block h-9 w-auto fill-current text-gray-800"/>
                     </a>
                     <div class="hidden ml-10 space-x-8 lg:block">
-                        <a href="#" class="uppercase text-base font-medium text-white hover:text-indigo-50">
+                        <a href="/"
+                           class="uppercase text-base font-medium text-white hover:text-indigo-50">
                             Главная </a>
 
                         <a href="{{ route('index') }}/#moderators"
                            class="uppercase text-base font-medium text-white hover:text-indigo-50">
                             Спикеры </a>
 
-                        <a href="#" class="uppercase text-base font-medium text-white hover:text-indigo-50"> Гости </a>
+                        <a href="#"
+                           class="uppercase text-base font-medium text-white hover:text-indigo-50"> Гости </a>
 
-                        <a href="#" class="uppercase text-base font-medium text-white hover:text-indigo-50">
+                        <a href="#"
+                           class="uppercase text-base font-medium text-white hover:text-indigo-50">
                             Расписание </a>
 
-                        <a href="#" class="uppercase text-base font-medium text-white hover:text-indigo-50">
+                        <a href="{{ route('index') }}/#contacts"
+                           class="uppercase text-base font-medium text-white hover:text-indigo-50">
                             Контакты </a>
                     </div>
                 </div>
@@ -50,16 +54,20 @@
                 </div>
             </div>
             <div class="py-4 flex flex-wrap justify-center space-x-6 lg:hidden">
-                <a href="#" class="text-base font-medium text-white hover:text-indigo-50"> Главная </a>
+                <a href="/"
+                   class="text-base font-medium text-white hover:text-indigo-50"> Главная </a>
 
                 <a href="{{ route('index') }}/#moderators"
-                      class="text-base font-medium text-white hover:text-indigo-50"> Спикеры </a>
+                   class="text-base font-medium text-white hover:text-indigo-50"> Спикеры </a>
 
-                <a href="#" class="text-base font-medium text-white hover:text-indigo-50"> Гости </a>
+                <a href="#"
+                   class="text-base font-medium text-white hover:text-indigo-50"> Гости </a>
 
-                <a href="#" class="text-base font-medium text-white hover:text-indigo-50"> Расписание </a>
+                <a href="#"
+                   class="text-base font-medium text-white hover:text-indigo-50"> Расписание </a>
 
-                <a href="#" class="text-base font-medium text-white hover:text-indigo-50"> Контакты </a>
+                <a href="{{ route('index') }}/#contacts"
+                   class="text-base font-medium text-white hover:text-indigo-50"> Контакты </a>
             </div>
         </nav>
     </header>
@@ -176,7 +184,8 @@
                         Спикеры мероприятия
                     </h2>
                     <p class="text-base text-gray-500">
-                        Профессионалы своего дела, которые сделают мероприятие интересным и помогут сформировать актуальную повестку благодаря своему опыту.
+                        Профессионалы своего дела, которые сделают мероприятие интересным и помогут сформировать
+                        актуальную повестку благодаря своему опыту.
                     </p>
                 </div>
                 <div class="lg:col-span-2">
@@ -186,7 +195,9 @@
                             <li class="sm:py-8">
                                 <div class="space-y-4 sm:grid sm:grid-cols-3 sm:items-start sm:gap-6 sm:space-y-0">
                                     <div class="aspect-w-3 aspect-h-2 sm:aspect-w-3 sm:aspect-h-4">
-                                        <img class="w-full rounded-lg" src="{{url('storage/moderators/' . $Moderator->image)}}" alt="" width="240">
+                                        <img class="w-full rounded-lg"
+                                             src="{{url('storage/moderators/' . $Moderator->image)}}" alt=""
+                                             width="240">
                                     </div>
                                     <div class="sm:col-span-2">
                                         <div class="space-y-4">
@@ -199,15 +210,20 @@
                                                     {!!$Moderator->description !!}
                                                 </p>
                                             </div>
-                                            <svg class="absolute top-1/2 right-full transform -translate-y-1/2 -translate-x-0" width="404"
-                                                 height="384" fill="none" viewBox="0 0 404 384">
+                                            <svg
+                                                class="absolute top-1/2 right-full transform -translate-y-1/2 -translate-x-0"
+                                                width="404"
+                                                height="384" fill="none" viewBox="0 0 404 384">
                                                 <defs>
-                                                    <pattern id="f210dbf6-a58d-4871-961e-36d5016a0f49" x="0" y="0" width="20" height="20"
+                                                    <pattern id="f210dbf6-a58d-4871-961e-36d5016a0f49" x="0" y="0"
+                                                             width="20" height="20"
                                                              patternUnits="userSpaceOnUse">
-                                                        <rect x="0" y="0" width="4" height="4" class="text-gray-200" fill="currentColor"/>
+                                                        <rect x="0" y="0" width="4" height="4" class="text-gray-200"
+                                                              fill="currentColor"/>
                                                     </pattern>
                                                 </defs>
-                                                <rect width="404" height="384" fill="url(#f210dbf6-a58d-4871-961e-36d5016a0f49)"/>
+                                                <rect width="404" height="384"
+                                                      fill="url(#f210dbf6-a58d-4871-961e-36d5016a0f49)"/>
                                             </svg>
                                         </div>
                                     </div>
@@ -221,8 +237,22 @@
         </div>
     </div>
 
-    <div class="w-full h-8 ">
-        <hr>
+    <div class="relative">
+        <div class="absolute inset-0 flex items-center" aria-hidden="true">
+            <div class="w-full border-t border-gray-200"></div>
+        </div>
+        <div class="relative flex justify-center">
+    <span class="bg-white px-2 text-gray-300">
+      <svg class="h-5 w-5 text-gray-300" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 20 20">
+        <path fill="#6B7280" fill-rule="evenodd"
+              d="M10 3a1 1 0 011 1v5h5a1 1 0 110 2h-5v5a1 1 0 11-2 0v-5H4a1 1 0 110-2h5V4a1 1 0 011-1z"
+              clip-rule="evenodd"/>
+      </svg>
+    </span>
+        </div>
+    </div>
+    <div class="py-4">
+
     </div>
 
 
@@ -252,7 +282,8 @@
                                     </p>
                                 </div>
                                 <div class="relative mb-4">
-                                    <h2 class="title-font font-semibold text-gray-900 tracking-widest text-xs">Адрес</h2>
+                                    <h2 class="title-font font-semibold text-gray-900 tracking-widest text-xs">
+                                        Адрес</h2>
                                     <p class="mt-1">
                                         @if($Data->adress)
                                             {!! $Data->adress !!}
@@ -261,15 +292,30 @@
                                 </div>
 
                                 <div class="relative mb-4">
-                                    <h2 class="title-font font-semibold text-gray-900 tracking-widest text-xs">EMAIL</h2>
+                                    <h2 class="title-font font-semibold text-gray-900 tracking-widest text-xs">
+                                        EMAIL</h2>
                                     <a class="text-indigo-500 leading-relaxed">elprof@elprof.ru</a>
-                                    <h2 class="title-font font-semibold text-gray-900 tracking-widest text-xs mt-4">Телефон</h2>
+                                    <h2 class="title-font font-semibold text-gray-900 tracking-widest text-xs mt-4">
+                                        Телефон</h2>
                                     <p class="leading-relaxed">+7 (495) 938-83-78</p>
                                 </div>
 
                             </div>
                         </div>
                     </section>
+
+                    <footer class="text-gray-600 body-font">
+                        <div class="container px-5 py-8 mx-auto flex items-center sm:flex-row flex-col">
+                            <a class="flex title-font font-medium items-center md:justify-start justify-center text-gray-900">
+                                <img class="h-12 w-auto" src="https://www.elprof.ru/upload/coats/user/logo1.png"
+                                     alt="">
+                                <span class="ml-3 text-l font-semibold">Всероссийский Электропрофсоюз</span>
+                            </a>
+                            <p class="text-base font-medium text-gray-900 sm:ml-4 sm:pl-4 sm:border-l-2 sm:border-gray-200 sm:py-2 sm:mt-0 mt-4">
+                                <span><x-far-copyright class="h-4 w-4"/></span> {{Carbon\Carbon::now()->format('Y')}}
+                            </p>
+                        </div>
+                    </footer>
 
                 </div>
             </div>
