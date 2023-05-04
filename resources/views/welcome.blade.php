@@ -60,7 +60,7 @@
                 <a href="{{ route('index') }}/#moderators"
                    class="text-base font-medium text-white hover:text-indigo-50"> Спикеры </a>
 
-                <a <a href="{{ route('index') }}/#guests"
+                <a href="{{ route('index') }}/#guests"
                    class="text-base font-medium text-white hover:text-indigo-50"> Гости </a>
 
                 <a href="#"
