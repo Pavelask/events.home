@@ -15,6 +15,7 @@ class ModeratorsModel extends Model
     protected $fillable = [
         'events_id',
         'name',
+        'jobtitle',
         'description',
         'image',
         'active',

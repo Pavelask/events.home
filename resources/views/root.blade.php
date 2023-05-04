@@ -16,27 +16,27 @@
         <!-- Scripts -->
         @vite(['resources/js/app.js'])
         @spladeHead
-        <script src="/js/tinymce/tinymce.min.js" referrerpolicy="origin"></script>
+{{--        <script src="/js/tinymce/tinymce.min.js" referrerpolicy="origin"></script>--}}
 {{--        <script src="https://cdn.tiny.cloud/1/nml1r1o3e0ye33sipg10kugop0n29mpzepuinfq4hc03evi9/tinymce/6/tinymce.min.js" referrerpolicy="origin"></script>--}}
-        <script>
-            tinymce.init({
-                selector: '#banner', // Replace this CSS selector to match the placeholder element for TinyMCE
-                plugins: 'code table lists',
-                language: 'ru',
-                height: 400,
-                browser_spellcheck: true,
-                contextmenu: true,
-                toolbar: 'undo redo | blocks | bold italic | alignleft aligncenter alignright alignjustify | indent outdent | bullist numlist | code '
-            });
-            tinymce.init({
-                selector: '#description', // Replace this CSS selector to match the placeholder element for TinyMCE
-                language: 'ru',
-                height: 400,
-                menubar: false,
-                toolbar: 'undo redo | blocks | bold italic | alignleft aligncenter alignright alignjustify'
-            });
-            tinyMCE.triggerSave();
-        </script>
+{{--        <script>--}}
+{{--            tinymce.init({--}}
+{{--                selector: '#banner', // Replace this CSS selector to match the placeholder element for TinyMCE--}}
+{{--                plugins: 'code table lists',--}}
+{{--                language: 'ru',--}}
+{{--                height: 400,--}}
+{{--                browser_spellcheck: true,--}}
+{{--                contextmenu: true,--}}
+{{--                toolbar: 'undo redo | blocks | bold italic | alignleft aligncenter alignright alignjustify | indent outdent | bullist numlist | code '--}}
+{{--            });--}}
+{{--            tinymce.init({--}}
+{{--                selector: '#description', // Replace this CSS selector to match the placeholder element for TinyMCE--}}
+{{--                language: 'ru',--}}
+{{--                height: 400,--}}
+{{--                menubar: false,--}}
+{{--                toolbar: 'undo redo | blocks | bold italic | alignleft aligncenter alignright alignjustify'--}}
+{{--            });--}}
+{{--            tinyMCE.triggerSave();--}}
+{{--        </script>--}}
     </head>
     <body class="font-sans antialiased">
         @splade

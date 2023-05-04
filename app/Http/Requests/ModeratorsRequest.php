@@ -37,6 +37,7 @@ class ModeratorsRequest extends FormRequest
         return [
             'events_data' => 'string',
             'name' => ['required', 'string'],
+            'jobtitle' => ['nullable', 'string'],
             'image' => ['nullable', 'image'],
             'description' => ['nullable', 'string'],
             'sort' => ['nullable', 'string'],

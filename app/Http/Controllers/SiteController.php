@@ -14,12 +14,14 @@ class SiteController extends Controller
     {
         $Event = EventsModel::where('status', 1)->orderBy('created_at', 'asc')->first();
         $Data = $Event->eventData()->first();
+        $Moderators = $Event->moderators()->get();
 
         // dd($Data);
 
         return view('welcome', [
             'Event' => $Event,
-            'Data' => $Data
+            'Data' => $Data,
+            'Moderators' => $Moderators
         ]);
     }
 

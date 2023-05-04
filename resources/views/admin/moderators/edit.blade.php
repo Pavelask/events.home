@@ -19,12 +19,17 @@
                                                 autofocus
                                                 autocomplete="title"/>
                             </div>
+                            <div class="col-span-6 sm:col-span-6">
+                                <x-splade-input name="jobtitle" type="text" :label="__('Должность, туда сюда ...')"
+                                                autofocus
+                                                autocomplete="jobtitle"/>
+                            </div>
                             <div class="col-start-1 col-span-6 sm:col-span-6">
                                 <x-splade-file id="image" name="image" filepond preview
                                                :label="__('фотокарточка')"/>
                             </div>
                             <div class="col-span-6 sm:col-span-6">
-                                <x-splade-textarea name="description" id="banner"  :label="__('Должность, место работы и т.д.')"
+                                <x-splade-textarea name="description" :label="__('Должность, место работы и т.д.')"
                                                    autosize/>
                             </div>
                             <div class="col-span-3 sm:col-span-3">
