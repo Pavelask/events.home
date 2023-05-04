@@ -56,8 +56,11 @@ class GuestsController extends Controller
     /**
      * Store a newly created resource in storage.
      */
-    public function store(GuestsRequest $request, EventsModel $event)
+    public function store(Request $request, EventsModel $event)
     {
+
+        dd($request);
+
         $defaultValueSort = 500;
 
         $validated = $request->validated();

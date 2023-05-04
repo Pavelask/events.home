@@ -23,7 +23,7 @@
                                                :label="__('Фотокарточка')"/>
                             </div>
                             <div class="col-span-6 sm:col-span-6">
-                                <x-splade-textarea name="description" :label="__('Должность, место работы и т.д.')"
+                                <x-splade-textarea name="description" id="description" :label="__('Должность, место работы и т.д.')"
                                                    autosize/>
                             </div>
                             <div class="col-span-3 sm:col-span-3">

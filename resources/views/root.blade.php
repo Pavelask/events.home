@@ -35,7 +35,7 @@
 {{--                menubar: false,--}}
 {{--                toolbar: 'undo redo | blocks | bold italic | alignleft aligncenter alignright alignjustify'--}}
 {{--            });--}}
-{{--            tinyMCE.triggerSave();--}}
+{{--            tinymce.triggerSave();--}}
 {{--        </script>--}}
     </head>
     <body class="font-sans antialiased">

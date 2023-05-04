@@ -3,7 +3,9 @@
 namespace App\Http\Controllers\Admin;
 
 use App\Http\Controllers\Controller;
+use App\Models\Admin\MembersModel;
 use Illuminate\Http\Request;
+use ProtoneMedia\Splade\SpladeTable;
 
 class MemberAdminController extends Controller
 {
@@ -12,7 +14,18 @@ class MemberAdminController extends Controller
      */
     public function index()
     {
-        //
+        return view('admin.members.index', [
+            'Members' => SpladeTable::for(MembersModel::class)
+                ->withGlobalSearch(columns: ['surName'])
+                ->perPageOptions([15, 20, 25])
+                ->column('id', label: 'ID')
+                ->column('surName', label: 'ФИО', sortable: true)
+                ->column('confirmation', label: 'Статус')
+                ->column('edit', label: 'Редактировать')
+                ->column('delete', label: 'Удалить')
+                ->paginate(20)
+
+        ]);
     }
 
     /**
