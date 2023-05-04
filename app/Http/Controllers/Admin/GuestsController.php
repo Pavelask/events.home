@@ -166,7 +166,7 @@ class GuestsController extends Controller
         Toast::title('Запись обновлена!')
             ->autoDismiss(7);
 
-        return redirect()->route('moderator.index', $event);
+        return redirect()->route('guest.index', $event);
     }
 
 

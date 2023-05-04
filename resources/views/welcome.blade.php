@@ -16,7 +16,7 @@
                            class="uppercase text-base font-medium text-white hover:text-indigo-50">
                             Спикеры </a>
 
-                        <a href="#"
+                        <a href="{{ route('index') }}/#guests"
                            class="uppercase text-base font-medium text-white hover:text-indigo-50"> Гости </a>
 
                         <a href="#"
@@ -60,7 +60,7 @@
                 <a href="{{ route('index') }}/#moderators"
                    class="text-base font-medium text-white hover:text-indigo-50"> Спикеры </a>
 
-                <a href="#"
+                <a <a href="{{ route('index') }}/#guests"
                    class="text-base font-medium text-white hover:text-indigo-50"> Гости </a>
 
                 <a href="#"
@@ -256,7 +256,7 @@
     </div>
 
 
-    <div class="bg-white">
+    <div class="bg-white" id="guests">
         <div class="mx-auto py-12 px-4 max-w-7xl sm:px-6 lg:px-8 lg:py-24">
             <div class="space-y-12 lg:grid lg:grid-cols-3 lg:gap-8 lg:space-y-0">
                 <div class="space-y-5 sm:space-y-4">
