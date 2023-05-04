@@ -11,7 +11,8 @@
                         <a href="#" class="uppercase text-base font-medium text-white hover:text-indigo-50">
                             Главная </a>
 
-                        <a href="#" class="uppercase text-base font-medium text-white hover:text-indigo-50">
+                        <a href="{{ route('index') }}/#moderators"
+                           class="uppercase text-base font-medium text-white hover:text-indigo-50">
                             Спикеры </a>
 
                         <a href="#" class="uppercase text-base font-medium text-white hover:text-indigo-50"> Гости </a>
@@ -51,7 +52,8 @@
             <div class="py-4 flex flex-wrap justify-center space-x-6 lg:hidden">
                 <a href="#" class="text-base font-medium text-white hover:text-indigo-50"> Главная </a>
 
-                <a href="#" class="text-base font-medium text-white hover:text-indigo-50"> Спикеры </a>
+                <a href="{{ route('index') }}/#moderators"
+                      class="text-base font-medium text-white hover:text-indigo-50"> Спикеры </a>
 
                 <a href="#" class="text-base font-medium text-white hover:text-indigo-50"> Гости </a>
 
@@ -166,7 +168,7 @@
     </div>
 
 
-    <div class="bg-white">
+    <div class="bg-white" id="moderators">
         <div class="mx-auto py-12 px-4 max-w-7xl sm:px-6 lg:px-8 lg:py-24">
             <div class="space-y-12 lg:grid lg:grid-cols-3 lg:gap-8 lg:space-y-0">
                 <div class="space-y-5 sm:space-y-4">
@@ -188,15 +190,25 @@
                                     </div>
                                     <div class="sm:col-span-2">
                                         <div class="space-y-4">
-                                            <div class="text-lg leading-6 font-medium space-y-1">
+                                            <div class="text-2xl leading-6 font-medium space-y-1">
                                                 <h3>{{ $Moderator->name }}</h3>
-                                                <p class="text-indigo-600">{{ $Moderator->jobtitle }}</p>
+                                                <p class="text-indigo-600 text-lg">{{ $Moderator->jobtitle }}</p>
                                             </div>
                                             <div class="text-sm">
                                                 <p class="text-gray-500">
                                                     {!!$Moderator->description !!}
                                                 </p>
                                             </div>
+                                            <svg class="absolute top-1/2 right-full transform -translate-y-1/2 -translate-x-0" width="404"
+                                                 height="384" fill="none" viewBox="0 0 404 384">
+                                                <defs>
+                                                    <pattern id="f210dbf6-a58d-4871-961e-36d5016a0f49" x="0" y="0" width="20" height="20"
+                                                             patternUnits="userSpaceOnUse">
+                                                        <rect x="0" y="0" width="4" height="4" class="text-gray-200" fill="currentColor"/>
+                                                    </pattern>
+                                                </defs>
+                                                <rect width="404" height="384" fill="url(#f210dbf6-a58d-4871-961e-36d5016a0f49)"/>
+                                            </svg>
                                         </div>
                                     </div>
                                 </div>
@@ -213,10 +225,51 @@
         <hr>
     </div>
 
+
     <div class="py-4">
         <div class="max-w-6xl mx-auto sm:px-2 lg:px-4">
             <div class="mb-4">
                 <div class="mt-3">
+                    <section class="text-gray-600 body-font relative" id="contacts">
+                        <div class="absolute inset-0 bg-gray-300">
+                            @if($Data->map)
+                                {!! $Data->map !!}
+                            @endif
+                        </div>
+                        <div class="container px-5 py-24 mx-auto flex">
+                            <div
+                                class="lg:w-1/3 md:w-1/2 bg-white rounded-lg p-8 flex flex-col md:ml-auto w-full mt-10 md:mt-0 relative z-10 shadow-md">
+                                <h2 class="text-gray-900 text-lg mb-1 font-medium title-font">
+                                    @if($Data->events_id)
+                                        {{$Data->name}}
+                                    @endif
+                                </h2>
+                                <div class="relative mb-4">
+                                    <p class="leading-relaxed text-sm mb-5 text-gray-600">
+                                        @if($Data->events_id)
+                                            {!! $Data->description !!}
+                                        @endif
+                                    </p>
+                                </div>
+                                <div class="relative mb-4">
+                                    <h2 class="title-font font-semibold text-gray-900 tracking-widest text-xs">Адрес</h2>
+                                    <p class="mt-1">
+                                        @if($Data->adress)
+                                            {!! $Data->adress !!}
+                                        @endif
+                                    </p>
+                                </div>
+
+                                <div class="relative mb-4">
+                                    <h2 class="title-font font-semibold text-gray-900 tracking-widest text-xs">EMAIL</h2>
+                                    <a class="text-indigo-500 leading-relaxed">elprof@elprof.ru</a>
+                                    <h2 class="title-font font-semibold text-gray-900 tracking-widest text-xs mt-4">Телефон</h2>
+                                    <p class="leading-relaxed">+7 (495) 938-83-78</p>
+                                </div>
+
+                            </div>
+                        </div>
+                    </section>
 
                 </div>
             </div>
