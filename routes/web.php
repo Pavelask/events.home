@@ -86,6 +86,8 @@ Route::middleware('splade')->group(function () {
             Route::resource('event/{event}/moderator', ModeratorsController::class);
 
             Route::resource('event/{event}/guest', GuestsController::class);
+            Route::resource('event/{event}/schedule', ScheduleController::class);
+            Route::resource('event/{event}/schedule/{schedule}/timetable', TimetableController::class);
 
             Route::resource('members', MemberAdminController::class);
 
