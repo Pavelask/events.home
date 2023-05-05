@@ -8,16 +8,6 @@ import { renderSpladeApp, SpladePlugin } from "@protonemedia/laravel-splade";
 import flatpickr from "flatpickr";
 import { Russian } from "flatpickr/dist/l10n/ru.js";
 
-// Import FilePond
-import * as FilePond from 'filepond';
-
-// Import the plugin code
-import FilePondPluginImageCrop from 'filepond-plugin-image-crop';
-
-FilePond.registerPlugin(FilePondPluginImageCrop);
-
-const el = document.getElementById("app");
-
 createApp({
     render: renderSpladeApp({ el })
 })
