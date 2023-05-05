@@ -8,6 +8,8 @@ import { renderSpladeApp, SpladePlugin } from "@protonemedia/laravel-splade";
 import flatpickr from "flatpickr";
 import { Russian } from "flatpickr/dist/l10n/ru.js";
 
+const el = document.getElementById("app");
+
 createApp({
     render: renderSpladeApp({ el })
 })
