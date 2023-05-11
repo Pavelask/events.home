@@ -108,16 +108,18 @@
                                     </dd>
                                 </div>
                             @endif
-                            <div class="py-4 sm:py-5 grid grid-cols-3 gap-4 px-6">
-                                <dt class="text-base font-medium text-gray-500">Статус участника</dt>
-                                <dd class="mt-1 text-gray-900 sm:mt-0 sm:col-span-2
-                                    @if($MemberStatus->id == 1) font-extrabold text-red-500 @endif
-                                @if($MemberStatus->id == 2) font-extrabold text-green-500 @endif
-                                @if($MemberStatus->id == 3) font-extrabold text-gray-500 @endif
-                                    ">
-                                    {{ $MemberStatus->name }}
-                                </dd>
-                            </div>
+{{--                            <div class="py-4 sm:py-5 grid grid-cols-3 gap-4 px-6">--}}
+{{--                                <dt class="text-base font-medium text-gray-500">Статус участника</dt>--}}
+{{--                                <dd class="mt-1 text-gray-900 sm:mt-0 sm:col-span-2--}}
+{{--                                    @if($MemberStatus->id == 1) font-extrabold text-red-500 @endif--}}
+{{--                                @if($MemberStatus->id == 2) font-extrabold text-green-500 @endif--}}
+{{--                                @if($MemberStatus->id == 3) font-extrabold text-gray-500 @endif--}}
+{{--                                    font-extrabold text-green-500--}}
+{{--                                    ">--}}
+{{--                                    {{ $MemberStatus->name }}--}}
+{{--                                    Подтвержден--}}
+{{--                                </dd>--}}
+{{--                            </div>--}}
                             <div class="mt-4 py-6 px-6 bg-gray-50 flex justify-end">
                                 <div>
                                     <Link href="{{ route('member.edit', ['event' => $Member->events_id, 'member' => $Member->id ]) }}" method="GET"

@@ -17,7 +17,8 @@ return new class extends Migration
                 ->references('id')->on('events')
                 ->onDelete('cascade');
             $table->string('week')->nullable();
-            $table->string('data')->nullable();
+            $table->data('data')->nullable();
+            $table->string('alt_data')->nullable();
             $table->text('description')->nullable();
             $table->string('sort');
             $table->ctring('active');
