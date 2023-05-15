@@ -319,12 +319,12 @@
                 </p>
             </div>
             <div class="sm:block">
-                <div class="border-b border-gray-200">
+                <div class="">
                     @foreach($Schedule as $day)
-                        <div class="bg-white px-4 py-5 border-b border-gray-200 sm:px-6">
+                        <div class="bg-white px-4 py-5 mb-4 border border-gray-100 rounded-lg sm:px-6">
                             <div class="-ml-4 -mt-2 flex items-center justify-between flex-wrap sm:flex-nowrap">
                                 <div class="ml-4 mt-2">
-                                    <h3 class="text-lg leading-6 font-medium text-gray-900">
+                                    <h3 class="text-lg leading-6 mb-4 font-medium text-cyan-800 uppercase">
                                         {{$day->week}}, {{$day->alt_data}}
                                     </h3>
                                 </div>
