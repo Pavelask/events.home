@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Models\Admin\EventsModel;
+use App\Models\Admin\ScheduleModel;
 use Illuminate\Http\Request;
 
 class SiteController extends Controller
@@ -27,6 +28,13 @@ class SiteController extends Controller
             'Guests' => $Guests,
             'Schedule' => $Schedule
         ]);
+    }
+
+    public function schedule(EventsModel $event, ScheduleModel $schedule)
+    {
+        // $Schedule = $event->schedule()->get();
+        $data = $schedule->timeTable()->get();
+        return $data;
     }
 
     /**

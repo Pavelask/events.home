@@ -55,6 +55,9 @@ Route::middleware('splade')->group(function () {
     Route::get('/', [SiteController::class, 'index'])
         ->name('index');
 
+    Route::get('/schedule/{schedule}', [SiteController::class, 'schedule'])
+        ->name('schedule');
+
     Route::middleware(['auth', 'verified'])->group(function () {
         Route::group(['middleware' => ['role:Admin']], function () {
 

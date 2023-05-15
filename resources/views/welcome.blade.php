@@ -333,7 +333,7 @@
                                 </div>
                             </div>
                             <x-splade-defer method="GET"
-                                            url="{{ route('timetable.index', ['event' => $Event, 'schedule' => $day->id]) }}">
+                                            url="{{ route('schedule', ['schedule' => $day->id]) }}">
                                 <template v-for="item in response">
                                     {{--                                <p>@{{item.id}}</p>--}}
 
