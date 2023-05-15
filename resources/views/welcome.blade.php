@@ -19,7 +19,7 @@
                         <a href="{{ route('index') }}/#guests"
                            class="uppercase text-base font-medium text-white hover:text-indigo-50"> Гости </a>
 
-                        <a href="#"
+                        <a href="{{ route('index') }}/#plan"
                            class="uppercase text-base font-medium text-white hover:text-indigo-50">
                             Расписание </a>
 
@@ -63,7 +63,7 @@
                 <a href="{{ route('index') }}/#guests"
                    class="text-base font-medium text-white hover:text-indigo-50"> Гости </a>
 
-                <a href="#"
+                <a href="{{ route('index') }}/#plan"
                    class="text-base font-medium text-white hover:text-indigo-50"> Расписание </a>
 
                 <a href="{{ route('index') }}/#contacts"
@@ -266,23 +266,24 @@
                     <p class="text-xl text-gray-500"></p>
                 </div>
                 <div class="lg:col-span-2">
-                    <ul role="list" class="space-y-12 sm:grid sm:grid-cols-2 sm:gap-x-6 sm:gap-y-12 sm:space-y-0 lg:gap-x-8">
+                    <ul role="list"
+                        class="space-y-12 sm:grid sm:grid-cols-2 sm:gap-x-6 sm:gap-y-12 sm:space-y-0 lg:gap-x-8">
                         @foreach($Guests as $Guest)
-                        <li>
-                            <div class="space-y-4">
-                                <div class="aspect-w-3 aspect-h-2">
-                                    <img class="object-cover shadow-lg rounded-lg"
-                                         src="{{url('storage/guests/' . $Guest->image)}}"
-                                          alt="">
+                            <li>
+                                <div class="space-y-4">
+                                    <div class="aspect-w-3 aspect-h-2">
+                                        <img class="object-cover shadow-lg rounded-lg"
+                                             src="{{url('storage/guests/' . $Guest->image)}}"
+                                             alt="">
+                                    </div>
+                                    <div class="text-lg leading-6 font-medium space-y-1">
+                                        <h3>{{$Guest->name}}</h3>
+                                        <p class="text-indigo-600">{{$Guest->description}}</p>
+                                    </div>
                                 </div>
-                                <div class="text-lg leading-6 font-medium space-y-1">
-                                    <h3>{{$Guest->name}}</h3>
-                                    <p class="text-indigo-600">{{$Guest->description}}</p>
-                                </div>
-                            </div>
-                        </li>
-                        @endforeach
-                        <!-- More people... -->
+                            </li>
+                    @endforeach
+                    <!-- More people... -->
                     </ul>
                 </div>
             </div>
@@ -303,11 +304,88 @@
     </span>
         </div>
     </div>
-    <div class="py-4">
 
+
+
+    <div class="bg-white" id="plan">
+        <div class="mx-auto max-w-4xl sm:px-6 lg:px-8 lg:py-24">
+            <div class="text-center pb-4">
+                <h2 class="text-2xl font-semibold text-indigo-600 tracking-wide uppercase">ПЛАН</h2>
+                <p class="mt-1 text-base text-gray-900 sm:text-base sm:tracking-tight lg:text-xl">
+                    мероприятий  IV Всероссийского семинара-совещания
+                    председателей первичных профсоюзных организаций
+                    Общественной организации «Всероссийский Электропрофсоюз»
+                    г. Санкт-Петербург
+                </p>
+            </div>
+            <div class="sm:block">
+                <div class="border-b border-gray-200">
+                    @foreach($Schedule as $day)
+                        <div class="bg-white px-4 py-5 border-b border-gray-200 sm:px-6">
+                            <div class="-ml-4 -mt-2 flex items-center justify-between flex-wrap sm:flex-nowrap">
+                                <div class="ml-4 mt-2">
+                                    <h3 class="text-lg leading-6 font-medium text-gray-900">
+                                        {{$day->week}}, {{$day->alt_data}}
+                                    </h3>
+                                </div>
+                                <div class="ml-4 mt-2 flex-shrink-0">
+
+                                </div>
+                            </div>
+                            <x-splade-defer method="GET"
+                                            url="{{ route('timetable.index', ['event' => $Event, 'schedule' => $day->id]) }}">
+                                <template v-for="item in response">
+                                    {{--                                <p>@{{item.id}}</p>--}}
+
+                                    <ul role="list" class="divide-y divide-gray-100 pt-2">
+                                        <li class="flex justify-between gap-x-6 py-5 bg-gray-50 p-4 rounded-lg shadow-sm">
+                                            <div class="flex gap-x-4">
+                                                <div class="min-w-0 flex-auto max-w-2xl">
+                                                    <p class="text-base font-semibold leading-6">
+                                                        <span v-text="item.time" class="text-gray-900"></span> <span
+                                                            v-text="item.place" class="text-indigo-600"></span>
+                                                    </p>
+                                                    <p class="mt-1 truncate text-base leading-5 text-gray-500 whitespace-normal">
+                                                        @{{item.description}}
+                                                    </p>
+                                                </div>
+                                            </div>
+
+                                            <div class="hidden sm:flex sm:flex-col sm:items-end">
+
+                                            </div>
+                                        </li>
+                                    </ul>
+
+
+                                </template>
+                            </x-splade-defer>
+                        </div>
+                    @endforeach
+                </div>
+            </div>
+
+        </div>
     </div>
 
 
+    <div class="relative">
+        <div class="absolute inset-0 flex items-center" aria-hidden="true">
+            <div class="w-full border-t border-gray-200"></div>
+        </div>
+        <div class="relative flex justify-center">
+    <span class="bg-white px-2 text-gray-300">
+      <svg class="h-5 w-5 text-gray-300" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 20 20">
+        <path fill="#6B7280" fill-rule="evenodd"
+              d="M10 3a1 1 0 011 1v5h5a1 1 0 110 2h-5v5a1 1 0 11-2 0v-5H4a1 1 0 110-2h5V4a1 1 0 011-1z"
+              clip-rule="evenodd"/>
+      </svg>
+    </span>
+        </div>
+    </div>
+    <div class="py-4">
+
+    </div>
 
     <div class="py-4">
         <div class="max-w-6xl mx-auto sm:px-2 lg:px-4">

@@ -16,6 +16,7 @@ class SiteController extends Controller
         $Data = $Event->eventData()->first();
         $Moderators = $Event->moderators()->get();
         $Guests = $Event->guests()->get();
+        $Schedule = $Event->schedule()->get();
 
         // dd($Data);
 
@@ -23,7 +24,8 @@ class SiteController extends Controller
             'Event' => $Event,
             'Data' => $Data,
             'Moderators' => $Moderators,
-            'Guests' => $Guests
+            'Guests' => $Guests,
+            'Schedule' => $Schedule
         ]);
     }
 

@@ -214,7 +214,7 @@
                                     </div>
                                     <div>
                                         <h3 class="text-s font-medium text-gray-900">
-                                            <a href="#}"
+                                            <a href="{{ route('schedule.index', $Event->id) }}"
                                                class="focus:outline-none">
                                                 <span class="absolute inset-0" aria-hidden="true"></span>
                                                 Расписание<span aria-hidden="true"> &rarr;</span>

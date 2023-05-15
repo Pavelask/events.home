@@ -11,7 +11,7 @@ class ScheduleRequest extends FormRequest
      */
     public function authorize(): bool
     {
-        return false;
+        return true;
     }
 
     /**
@@ -22,7 +22,12 @@ class ScheduleRequest extends FormRequest
     public function rules(): array
     {
         return [
-            //
+            'week' => ['nullable', 'string'],
+            'date' => ['required', 'string'],
+            'alt_data' => ['nullable', 'string'],
+            'description' => ['nullable', 'string'],
+            'sort' => ['nullable', 'string'],
+            'active' => ['nullable', 'string'],
         ];
     }
 }

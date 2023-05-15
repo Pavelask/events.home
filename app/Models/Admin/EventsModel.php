@@ -70,4 +70,10 @@ class EventsModel extends Model
     {
         return $this->hasMany(GuestsModel::class, 'events_id', 'id');
     }
+
+    public function schedule(): hasMany
+    {
+        return $this->hasMany(ScheduleModel::class, 'events_id', 'id');
+    }
 }
+

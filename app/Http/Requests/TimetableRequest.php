@@ -11,7 +11,16 @@ class TimetableRequest extends FormRequest
      */
     public function authorize(): bool
     {
-        return false;
+        return true;
+    }
+
+    public function attributes(): array
+    {
+        return [
+            'time' => 'Время',
+            'place' => 'Место проведения',
+            'description' => 'Новость',
+        ];
     }
 
     /**
@@ -22,7 +31,12 @@ class TimetableRequest extends FormRequest
     public function rules(): array
     {
         return [
-            //
+            'time' => ['required', 'string'],
+            'place' => ['nullable', 'string'],
+            'image' => ['nullable', 'string'],
+            'description' => ['nullable', 'string'],
+            'sort' => ['nullable', 'string'],
+            'active' => ['nullable', 'string'],
         ];
     }
 }

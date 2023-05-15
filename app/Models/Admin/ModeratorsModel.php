@@ -24,6 +24,6 @@ class ModeratorsModel extends Model
 
     public function event(): belongsTo
     {
-        return $this->belongsTo(Event::class);
+        return $this->belongsTo(EventsModel::class);
     }
 }

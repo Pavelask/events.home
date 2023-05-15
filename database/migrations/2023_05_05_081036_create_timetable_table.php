@@ -13,7 +13,7 @@ return new class extends Migration
     {
         Schema::create('timetable', function (Blueprint $table) {
             $table->id();
-            $table->foreignUuid('schedule_id')
+            $table->foreignid('schedule_id')
                 ->references('id')->on('schedule')
                 ->onDelete('cascade');
             $table->string('time')->nullable();
@@ -21,7 +21,7 @@ return new class extends Migration
             $table->text('description')->nullable();
             $table->string('image')->nullable();
             $table->string('sort');
-            $table->ctring('active');
+            $table->string('active');
             $table->timestamps();
         });
     }
