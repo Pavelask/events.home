@@ -37,6 +37,12 @@
                                 Контактный номер: <span
                                     class="font-bold text-slate-600">+7{{ $item->contactPhone  }}</span>
                             </div>
+                            <div class="text-gray-900 text-sm  break-all whitespace-pre-line">
+                                <span class="font-bold text-slate-600 whitespace-pre-line">{{ $item->name_to }}</span>
+                            </div>
+                            <div class="text-gray-900 text-sm  break-all whitespace-pre-line">
+                                <span class="font-bold text-slate-600 whitespace-pre-line">{{ $item->name_fo }}</span>
+                            </div>
                         </div>
                     </x-splade-cell>
 

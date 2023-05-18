@@ -39,10 +39,12 @@
                                                             :label="__('Фото к приветствию')"/>
                                         </div>
                                         <div class="col-start-1 col-span-6 sm:col-span-6">
-                                            <x-splade-textarea name="info"
+                                            <x-splade-textarea name="info" id="info"
                                                                :label="__('Приветствие')"
                                                                autosize/>
+
                                         </div>
+
                                         <div class="col-start-1 col-span-6 sm:col-span-6">
                                             <x-splade-file  name="banner" filepond preview
                                                             min-size="100KB" max-size="5MB"
@@ -88,9 +90,11 @@
 
                             </div>
                         </x-splade-form>
+
                     </div>
                 </div>
             </div>
         </div>
     </div>
+
 </x-app-layout>

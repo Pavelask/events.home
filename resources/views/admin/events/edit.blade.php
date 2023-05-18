@@ -22,7 +22,7 @@
                                                     autocomplete="name"/>
                                 </div>
                                 <div class="col-span-6 sm:col-span-6">
-                                    <x-splade-textarea id="description" name="description"
+                                    <x-splade-textarea id="info" name="description"
                                                        :label="__('Описание мероприятия ')"
                                                        autosize/>
                                 </div>
@@ -49,7 +49,7 @@
                                                     autocomplete="status"/>
                                 </div>
                                 <div class="col-span-6 sm:col-span-6">
-                                    <x-splade-textarea id="agreement" name="agreement"
+                                    <x-splade-textarea id="info" name="agreement"
                                                        :label="__('Соглашение о персональных данных')"
                                                        autosize/>
                                 </div>

@@ -11,11 +11,16 @@ return new class extends Migration
      */
     public function up(): void
     {
-        Schema::create('territorial_organizations', function (Blueprint $table) {
+        Schema::create('news', function (Blueprint $table) {
             $table->id();
-            $table->string('name_to');
-            $table->string('code');
+            $table->foreignUuid('events_id')
+                ->references('id')->on('events')
+                ->onDelete('cascade');
+            $table->string('title')->nullable();
             $table->text('description')->nullable();
+            $table->string('image')->nullable();
+            $table->string('sort')->nullable();
+            $table->string('active')->nullable();
             $table->timestamps();
         });
     }
@@ -25,6 +30,6 @@ return new class extends Migration
      */
     public function down(): void
     {
-        Schema::dropIfExists('territorial_organizations');
+        Schema::dropIfExists('news');
     }
 };

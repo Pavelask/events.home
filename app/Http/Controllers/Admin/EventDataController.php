@@ -19,6 +19,8 @@ class EventDataController extends Controller
      */
     public function index(string $event)
     {
+        app('debugbar')->disable();
+
         $Events = EventsModel::find($event);
         $Data = $Events->eventData;
 
@@ -104,6 +106,7 @@ class EventDataController extends Controller
      */
     public function edit(EventsModel $event, string $data)
     {
+        app('debugbar')->disable();
 
         $Data = $event->eventData()->find($data);
         $image = '';
@@ -142,6 +145,9 @@ class EventDataController extends Controller
      */
     public function update(EventDataRequest $request, EventsModel $event, string $data)
     {
+//        dd($request);
+        app('debugbar')->disable();
+
         HandleSpladeFileUploads::forRequest($request);
         $data = $event->eventData()->find($data);
         $validated = $request->validated();

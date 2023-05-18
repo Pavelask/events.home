@@ -45,4 +45,5 @@ class MembersModel extends Model
     {
         return $this->belongsTo(EventsModel::class );
     }
+
 }
