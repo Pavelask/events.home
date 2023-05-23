@@ -69,9 +69,7 @@ class Members extends AbstractTable
     {
 
         $table
-//            ->withGlobalSearch(columns: ['id'])
-//            ->column('id', sortable: true);
-            ->withGlobalSearch(columns: ['surName'])
+            ->withGlobalSearch(columns: ['id','surName'])
             ->perPageOptions([10, 20, 30, 40, 50])
             ->column('id', label: 'ID', sortable: true)
             ->column('surName', label: 'Фамилия', sortable: true)
