@@ -12,7 +12,7 @@ class TerritorialOrganizationsModel extends Model
     protected $table = 'territorial_organizations';
 
     protected $fillable = [
-        'name',
+        'name_to',
         'code',
         'description',
     ];

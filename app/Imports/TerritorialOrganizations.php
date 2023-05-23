@@ -16,7 +16,7 @@ class TerritorialOrganizations implements ToModel, WithStartRow
     public function model(array $row)
     {
         return new TerritorialOrganizationsModel([
-            'name' => $row[0],
+            'name_to' => $row[0],
             'code' => $row[1],
         ]);
     }

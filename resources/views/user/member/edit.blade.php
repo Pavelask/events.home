@@ -43,7 +43,7 @@
                                             'job_title' => $Member->job_title,
                                             'name_ppo' => $Member->name_ppo,
                                             'name_to' => $Member->name_to,
-                                            'region' => $Member->region,
+                                            'name_fo' => $Member->region,
                                             'note' => $Member->note,
                                             'agreement' => $Member->agreement,
                                             ]"
@@ -129,13 +129,13 @@
                                             <x-splade-select name="name_to"
                                                              :label="__('Территориальная организация *')"
                                                              :options="$name_to"
-                                                             option-label="name" option-value="id" choices/>
+                                                             option-label="name_to" option-value="id" choices/>
                                         </div>
                                         <div class="col-start-1 col-span-6 sm:col-span-6">
-                                            <x-splade-select name="region"
+                                            <x-splade-select name="name_fo"
                                                              :label="__('Федеральный округ')"
-                                                             :options="$federal"
-                                                             option-label="name" option-value="id" choices/>
+                                                             :options="$name_fo"
+                                                             option-label="name_fo" option-value="id" choices/>
                                         </div>
                                         <div class="col-start-1 col-span-6 sm:col-span-6">
                                             <x-splade-textarea id="note" name="note"

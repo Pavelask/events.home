@@ -7,19 +7,16 @@
             <div class="md:grid md:grid-cols-6 md:gap-6">
 
                 <div class="col-span-6 sm:col-span-6">
-                    <x-splade-input name="name" type="text" :label="__('Название округа')"
-                                    value="{{ old('name', $FederalFistrict->name ) }}"
+                    <x-splade-input name="name_fo" type="text" :label="__('Название округа')"
                                     autofocus
                     />
                 </div>
                 <div class="col-span-6 sm:col-span-6">
                     <x-splade-input name="code" type="text" :label="__('Код')"
-                                    value="{{ old('name', $FederalFistrict->code ) }}"
                     />
                 </div>
                 <div class="col-span-6 sm:col-span-6">
                     <x-splade-textarea name="description" :label="__('Примечание')"
-                                       value="{{ old('name', $FederalFistrict->description ) }}"
                                        autosize/>
                 </div>
                 <div class="col-span-6 sm:col-span-6">

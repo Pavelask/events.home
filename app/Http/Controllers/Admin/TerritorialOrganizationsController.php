@@ -19,12 +19,13 @@ class TerritorialOrganizationsController extends Controller
     {
 
         $count = count(TerritorialOrganizationsModel::all());
+//        dd(TerritorialOrganizationsModel::all());
         return view('admin.territorialorganizations.index', [
             'TerritorialOrganizations' => SpladeTable::for(TerritorialOrganizationsModel::class)
-                ->withGlobalSearch(columns: ['name'])
+                ->withGlobalSearch(columns: ['name_to'])
                 ->perPageOptions([15, 20, 30])
 //                ->column('id', label: 'ID')
-                ->column('name', label: 'Организация',
+                ->column('name_to', label: 'Организация',
                     canBeHidden: false,
                     hidden: false,
                     sortable: true)

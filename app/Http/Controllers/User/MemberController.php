@@ -99,7 +99,7 @@ class MemberController extends Controller
             return redirect('404');
         }
 
-        $Federal = FederalDistrictModel::find($member->region);
+        $name_fo = FederalDistrictModel::find($member->region);
         $name_to = TerritorialOrganizationsModel::find($member->name_to);
         $Mstatus = MemberStatusModel::find($member->confirmation);
 
@@ -108,7 +108,7 @@ class MemberController extends Controller
         return view('user.member.show', [
             'Member' => $member,
             'NameTO' => $name_to,
-            'Federal' => $Federal,
+            'NameFO' => $name_fo,
             'MemberStatus' => $Mstatus
         ]);
     }
@@ -128,14 +128,16 @@ class MemberController extends Controller
 
         $event = EventsModel::where('id', $member->events_id)->first();
         $name_to = TerritorialOrganizationsModel::all();
-        $federal = FederalDistrictModel::all();
+        $name_fo = FederalDistrictModel::all();
+
+        // dd($name_fo);
 
 //        dd(URL::signedRoute('handbook.index', ['user' => 23]));
         return view('user.member.edit', [
             'Member' => $member,
             'event' => $event,
             'name_to' => $name_to,
-            'federal' => $federal,
+            'name_fo' => $name_fo,
         ]);
     }
 
@@ -147,6 +149,8 @@ class MemberController extends Controller
 
 //        dd($request, $member);
         $validator = $request->validated();
+//        dd($validator);
+        $member->region = $request->name_fo;
         $member->update($validator);
 
         Toast::title('Анкета обновлена!')

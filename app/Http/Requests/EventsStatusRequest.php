@@ -4,7 +4,7 @@ namespace App\Http\Requests;
 
 use Illuminate\Foundation\Http\FormRequest;
 
-class FederalDistrictRequest extends FormRequest
+class EventsStatusRequest extends FormRequest
 {
     /**
      * Determine if the user is authorized to make this request.
@@ -22,9 +22,8 @@ class FederalDistrictRequest extends FormRequest
     public function rules(): array
     {
         return [
-            'name_fo' => ['required', 'string'],
-            'code' => ['required', 'string'],
-            'description' => ['max:255'],
+            'name' => ['required', 'string'],
+            'sort' => ['nullable', 'string'],
         ];
     }
 }

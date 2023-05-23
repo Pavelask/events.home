@@ -94,6 +94,31 @@
                             <li class="hover:bg-gray-50 p-2 rounded-lg">
                                 <div class="relative group py-4 flex items-start space-x-3">
                                     <div class="flex-shrink-0">
+                                      <span
+                                          class="inline-flex items-center justify-center h-10 w-10 rounded-lg bg-lime-500">
+                                          <x-far-calendar-xmark class="text-white h-8 w-8"/>
+                                      </span>
+                                    </div>
+                                    <div class="min-w-0 flex-1">
+                                        <div class="text-sm font-medium text-gray-900">
+                                            <a href="{{ route('eventsstatus.index') }}">
+                                                <span class="absolute inset-0" aria-hidden="true"></span>
+                                                Статутс мероприятия
+                                            </a>
+                                        </div>
+                                        <p class="text-sm text-gray-500">
+                                            Добавление,удаление, редактирование ...
+                                        </p>
+                                    </div>
+                                    <div class="flex-shrink-0 self-center">
+
+                                    </div>
+                                </div>
+                            </li>
+
+                            <li class="hover:bg-gray-50 p-2 rounded-lg">
+                                <div class="relative group py-4 flex items-start space-x-3">
+                                    <div class="flex-shrink-0">
                                         <span
                                             class="inline-flex items-center justify-center h-10 w-10 rounded-lg bg-lime-500">
                                           <x-fas-user-tie class="text-white h-8 w-8"/>

@@ -82,15 +82,15 @@
                                 <dt class="text-base font-medium text-gray-500">Территориальная организация</dt>
                                 <dd class="mt-1 text-base text-gray-900 sm:mt-0 sm:col-span-2">
                                     @if($NameTO)
-                                        {{ $NameTO->name }}
+                                        {{ $NameTO->name_to }}
                                     @endif
                                 </dd>
                             </div>
                             <div class="py-4 sm:py-5 grid grid-cols-3 gap-4 px-6">
                                 <dt class="text-base font-medium text-gray-500">Федеральный округ</dt>
                                 <dd class="mt-1 text-base text-gray-900 sm:mt-0 sm:col-span-2">
-                                    @if($Federal)
-                                        {{ $Federal->name }}
+                                    @if($NameFO)
+                                        {{ $NameFO->name_fo }}
                                     @endif
                                 </dd>
                             </div>

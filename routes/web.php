@@ -4,6 +4,7 @@ use App\Http\Controllers\Admin\AdminController;
 use App\Http\Controllers\Admin\EventController;
 use App\Http\Controllers\Admin\EventDataController;
 use App\Http\Controllers\Admin\EventNewsController;
+use App\Http\Controllers\Admin\EventsStatusController;
 use App\Http\Controllers\Admin\EventsTypesController;
 use App\Http\Controllers\Admin\FAQController;
 use App\Http\Controllers\Admin\FederalDistrictController;
@@ -74,6 +75,8 @@ Route::middleware('splade')->group(function () {
                 Route::resource('federaldistrict', FederalDistrictController::class);
 
                 Route::resource('eventstypes', EventsTypesController::class);
+
+                Route::resource('eventsstatus', EventsStatusController::class);
 
                 Route::resource('memberstatus', MemberStatusController::class);
 

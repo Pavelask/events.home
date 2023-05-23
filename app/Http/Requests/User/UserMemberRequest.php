@@ -77,7 +77,7 @@ class UserMemberRequest extends FormRequest
             'note' => ['nullable'],
             'qr_code' => ['nullable'],
             'qr_code_pic' => ['nullable'],
-            'region' => ['nullable'],
+            'name_fo' => ['nullable'],
             'confirmation' => ['string'],
             'agreement' => ['accepted'],
         ];

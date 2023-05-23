@@ -31,7 +31,7 @@
                             @foreach($TerritorialOrganizations->resource as $TerritorialOrganization)
                                 <tr class="hover:bg-zinc-50 hover:text-gray-900 mb-4 border-b text-sm">
                                     <td class="p-4 border-r">
-                                        {{ $TerritorialOrganization->name }}
+                                        {{ $TerritorialOrganization->name_to }}
                                     </td>
                                     <td class="text-center">
                                         {{ $TerritorialOrganization->code }}

@@ -3,24 +3,24 @@
 namespace App\Http\Controllers\Admin;
 
 use App\Http\Controllers\Controller;
-use App\Http\Requests\FederalDistrictRequest;
-use App\Models\Admin\FederalDistrictModel;
+use App\Http\Requests\EventsStatusRequest;
+use App\Models\Admin\EventStatusModel;
 use Illuminate\Http\Request;
 use ProtoneMedia\Splade\Facades\Toast;
 use ProtoneMedia\Splade\SpladeTable;
 
-class FederalDistrictController extends Controller
+class EventsStatusController extends Controller
 {
     /**
      * Display a listing of the resource.
      */
     public function index()
     {
-        return view('admin.federaldistrict.index', [
-            'FederalDistrict' => SpladeTable::for(FederalDistrictModel::class)
+        return view('admin.eventstatus.index', [
+            'EventsStatus' => SpladeTable::for(EventStatusModel::class)
                 ->column('id', label: 'ID')
-                ->column('name_fo', label: 'Тип мероприятия')
-                ->column('code', label: 'CODE')
+                ->column('name', label: 'Статус')
+                ->column('sort', label: 'SORT')
                 ->column('edit', label: 'Редактировать')
                 ->column('delete', label: 'Удалить')
 
@@ -32,24 +32,23 @@ class FederalDistrictController extends Controller
      */
     public function create()
     {
-        return view('admin.federaldistrict.add');
+        return view('admin.eventstatus.add');
     }
 
     /**
      * Store a newly created resource in storage.
      */
-    public function store(FederalDistrictRequest $federaldistrict)
+    public function store(EventsStatusRequest $request)
     {
         $defaultValue = 500;
-        $validated = $federaldistrict->validated();
+        $validated = $request->validated();
         $validated['sort'] = $validated['sort'] ?? $defaultValue;
 
-        FederalDistrictModel::create($validated);
+        EventStatusModel::create($validated);
 
         Toast::title('Запись добавлена!')
             ->autoDismiss(7);
-
-        return redirect()->route('federaldistrict.index');
+        return redirect()->route('eventsstatus.index');
     }
 
     /**
@@ -63,32 +62,32 @@ class FederalDistrictController extends Controller
     /**
      * Show the form for editing the specified resource.
      */
-    public function edit(string $federaldistrict)
+    public function edit(string $eventsstatus)
     {
-        $FederalFistrict = FederalDistrictModel::find($federaldistrict);
+        $eventsstatus = EventStatusModel::find($eventsstatus);
 
-        return view('admin.federaldistrict.edit', [
-            'FederalFistrict' => $FederalFistrict
+        return view('admin.eventstatus.edit', [
+            'eventsstatus' => $eventsstatus
         ]);
     }
 
     /**
      * Update the specified resource in storage.
      */
-    public function update(FederalDistrictRequest $request, FederalDistrictModel $federaldistrict)
+    public function update(EventsStatusRequest $request, EventStatusModel $eventsstatus)
     {
-        $federaldistrict->update($request->all());
+        $eventsstatus->update($request->all());
         Toast::title('Запись обновлена!')->autoDismiss(7);
-        return redirect()->route('federaldistrict.index');
+        return redirect()->route('eventsstatus.index');
     }
 
     /**
      * Remove the specified resource from storage.
      */
-    public function destroy(FederalDistrictModel $federaldistrict)
+    public function destroy(EventStatusModel $eventsstatus)
     {
-        $federaldistrict->delete();
+        $eventsstatus->delete();
         Toast::title('Запись удалена!')->danger()->autoDismiss(7);
-        return redirect()->route('federaldistrict.index');
+        return redirect()->route('eventsstatus.index');
     }
 }

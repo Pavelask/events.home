@@ -113,7 +113,7 @@
                                                 <x-splade-select name="name_to"
                                                                  :label="__('Территориальная организация *')"
                                                                  :options="$Name_to"
-                                                                 option-label="name" option-value="id" choices/>
+                                                                 option-label="name_to" option-value="id" choices/>
                                             </div>
                                         @endif
 
@@ -122,7 +122,7 @@
                                                 <x-splade-select name="region"
                                                                  :label="__('Федеральный округ')"
                                                                  :options="$Federal"
-                                                                 option-label="name" option-value="id" choices/>
+                                                                 option-label="name_fo" option-value="id" choices/>
                                             </div>
                                         @endif
                                         <div class="col-start-1 col-span-6 sm:col-span-6">

@@ -12,7 +12,7 @@ class FederalDistrictModel extends Model
     protected $table = 'federal_district';
 
     protected $fillable = [
-        'name',
+        'name_fo',
         'code',
         'description',
     ];
