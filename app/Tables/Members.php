@@ -40,21 +40,22 @@ class Members extends AbstractTable
     public function for()
     {
 
-//        return MembersModel::query()
-//                  ->join('territorial_organizations', 'member.name_to', '=', 'territorial_organizations.id')
-//                  ->join('federal_district', 'member.region', '=', 'federal_district.id');
+        return MembersModel::query()
+                    ->join('territorial_organizations', 'member.name_to', '=', 'territorial_organizations.id')
+                    ->join('federal_district', 'member.region', '=', 'federal_district.id')
+                    ->select('member.*', 'territorial_organizations.name_to', 'federal_district.name_fo');
 
 //        return DB::table('member')
 //            ->leftJoin('territorial_organizations', 'member.name_to', '=', 'territorial_organizations.id')
 //            ->paginate(20);
 
-        $members = DB::table('member')
-            ->join('territorial_organizations', 'member.name_to', '=', 'territorial_organizations.id')
-            ->join('federal_district', 'member.region', '=', 'federal_district.id')
-            ->select('member.*', 'territorial_organizations.name_to', 'federal_district.name_fo')
-            ->paginate(20);
-//        dd($members);
-        return $members;
+//        return  DB::table('member')
+//            ->join('territorial_organizations', 'member.name_to', '=', 'territorial_organizations.id')
+//            ->join('federal_district', 'member.region', '=', 'federal_district.id')
+//            ->select('member.*', 'territorial_organizations.name_to', 'federal_district.name_fo')
+//            ->paginate(20);
+
+
     }
 
     /**
@@ -91,8 +92,8 @@ class Members extends AbstractTable
             ->column('agreement', label: 'Согласие', hidden: true)
             ->column('edit', label: 'Редактировать', exportAs: false)
             ->column('delete', label: 'Удалить', exportAs: false)
-            ->export();
-//            ->paginate(25);
+            ->export()
+            ->paginate(25);
 
             // ->searchInput()
 
